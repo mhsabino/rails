@@ -73,7 +73,7 @@ module ActiveSupport
           if listener.respond_to?(:start) && listener.respond_to?(:finish)
             subscriber_class = Evented
           else
-            if listener.respond_to?(:arity) && listener.arity == 1
+            if listener.respond_to?(:parameters) && listener.parameters.length == 1
               subscriber_class = EventObject
             else
               subscriber_class = Timed
